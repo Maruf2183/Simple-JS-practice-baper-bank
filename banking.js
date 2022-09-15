@@ -1,49 +1,49 @@
-console.log("js conncetded successfully");
-const tag = id => document.getElementById(id);
-const inputValue = id => parseFloat(tag(id).value);
-const tagText = id => parseFloat(tag(id).innerText);
+console.log("Script Connected");
+const elementOf = id => document.getElementById(id);
+const valueOf = id => parseFloat(elementOf(id).value);
+const elementTextOf = id => parseFloat(elementOf(id).innerText);
 // depositing....>>
-document.getElementById('deposit').addEventListener('click', () => {
-    const depositAmount = inputValue('deposit-amount');
-
-    if (isNaN(depositAmount)) {
+ elementOf('deposit').addEventListener('click', () => {
+    const depositAmount = valueOf('deposit-amount');
+    if (isNaN(depositAmount)){
         alert('please input a valid number')
     }
     else {
-        tag('deposit-bank').innerText =tagText('deposit-bank')+depositAmount;
-        tag('deposit-amount').value = '';
-        tag('balance-bank').innerText =tagText('balance-bank')+depositAmount;
+        elementOf('deposit-bank').innerText =elementTextOf('deposit-bank')+depositAmount;
+        elementOf('balance-bank').innerText =elementTextOf('balance-bank')+depositAmount;
+        elementOf('deposit-amount').value = '';
     }
 })
-   
-   
-  
 // withdrawing
-document.getElementById('withdraw-button').addEventListener('click', () => {
-    const withdrawAmount = inputValue('withdraw-amount');
-    if (withdrawAmount <= tagText('balance-bank')) {
+elementOf('withdraw-button').addEventListener('click', () => {
+    const withdrawAmount = valueOf('withdraw-amount');
+    if (withdrawAmount <= elementTextOf('balance-bank')) {
         console.log('get into first');
-        tag('balance-bank').innerText = tagText('balance-bank') - withdrawAmount;
-        tag('withdraw').innerText = tagText('withdraw') + withdrawAmount;
-        tag('withdraw-amount').value = '';
+        elementOf('balance-bank').innerText = elementTextOf('balance-bank') - withdrawAmount;
+        elementOf('withdraw').innerText = elementTextOf('withdraw') + withdrawAmount;
+        elementOf('withdraw-amount').value = '';
     }
-    else if (isNaN(withdrawAmount)) {
+    else if (isNaN(withdrawAmount)){
         alert("Please input a Number")
-        tag('withdraw-amount').value = '';
+        elementOf('withdraw-amount').value = '';
         
     }
-    else if (withdrawAmount > tagText('balance-bank')) {
+    else if (withdrawAmount > elementTextOf('balance-bank')) {
         alert('Opps! Balance Low')
-        tag('withdraw-amount').value = '';
+        elementOf('withdraw-amount').value = '';
     }
     else {
         console.log("get into else", withdrawAmount);
-        tag('withdraw-amount').value = '';
+        elementOf('withdraw-amount').value = '';
         
     }
 }
     
 )
+
+   
+   
+  
         
         
     

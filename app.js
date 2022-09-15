@@ -1,11 +1,11 @@
-document.getElementById('login-button').addEventListener('click', function () {
-    const userMail = document.getElementById('email').value;
-    const userPass = document.getElementById('password').value;
-    if (userMail == 'marufraju@gmail.com' && userPass == 'asdfasdf') {
+const element = (id) => document.getElementById(id);
+const valueOf = (id) =>element(id).value;
+element('login-button').addEventListener('click',()=> {
+    if (valueOf('email') == 'marufraju@gmail.com' && valueOf('password') == 'asdfasdf') {
        window.location.href='banking.html'
     }
     else {
-        alert('wrong password or mail')
+        alert('Wrong Password or Email')
     }
 })
 
